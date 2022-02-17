@@ -4,30 +4,162 @@
   <!-- <div class="main-header bg-section">
     <div class="full-bg full-bg-gradient"></div>
   </div> -->
-  <h2 class="display-3">Angular Agency</h2>
+  <h2 class="display-3 pt-5">Angular Agency</h2>
   <h4 class="pt-4">Hi, I am Przemyslaw Malara!</h4>
   <h4 class="pt-4">Welcome to my web portfolio</h4>
 </app-herobar>
+<app-herobar>
+  <div class="container" style="background-color: black; opacity: 0.8">
+    <div class="row py-4">
+      <div class="col">
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem quia
+          excepturi iste incidunt. Tempore voluptatum error voluptate, pariatur
+          placeat facere. Iure blanditiis inventore suscipit repellendus
+          molestiae eveniet veniam ipsam ullam.
+        </p>
+        <a href="#" (click)="readMore = !readMore">Read more</a>
 
+        <p *ngIf="readMore">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi itaque
+          aliquid quod sint, et inventore nobis blanditiis sed! Harum tempora
+          cumque repudiandae corrupti numquam quam mollitia quisquam. Tempora,
+          optio placeat.
+          <input type="text" (keyup)="change($any($event.target).value)" />
+          <app-progressbar
+            label="Your skils"
+            [value]="value"
+            status="success"
+            striped
+          ></app-progressbar>
+        </p>
+      </div>
+      <div class="col">
+        <app-progressbar
+          label="Angular"
+          value="30"
+          status="danger"
+          striped
+        ></app-progressbar>
+        <app-progressbar
+          label="CSS"
+          value="50"
+          status="info"
+          striped
+        ></app-progressbar>
+        <app-progressbar
+          label="HTML"
+          value="80"
+          status="success"
+          striped
+        ></app-progressbar>
+      </div>
+    </div>
+  </div>
+</app-herobar>
+<app-herobar>
+  <h4 class="pt-4">Such a nice side...</h4>
+</app-herobar>
+<!-- What I do -->
 <div class="container">
-  <div class="row py">
-    <div class="row">
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem quia
-        excepturi iste incidunt. Tempore voluptatum error voluptate, pariatur
-        placeat facere. Iure blanditiis inventore suscipit repellendus molestiae
-        eveniet veniam ipsam ullam.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi itaque
-        aliquid quod sint, et inventore nobis blanditiis sed! Harum tempora
-        cumque repudiandae corrupti numquam quam mollitia quisquam. Tempora,
-        optio placeat.
-      </p>
+  <h2 class="mt-4 text-center">What I do</h2>
+  <hr />
+  <div class="row py-4">
+    <div class="col-md-6 col-12 p2">
+      <!--  -->
+      <div class="nav flex-column nav-pills text-lg-right">
+        <a
+          href="javascript:"
+          class="nav-link"
+          (click)="currentTab = 'marketing'"
+          >Marketing and sales langing pages
+        </a>
+        <a href="javascript:" class="nav-link" (click)="currentTab = 'mobile'"
+          >Mobile Applications
+        </a>
+        <a href="javascript:" class="nav-link" (click)="currentTab = 'websites'"
+          >Websites with CMS</a
+        >
+        <a href="javascript:" class="nav-link" (click)="currentTab = 'web'"
+          >Web Applications
+        </a>
+      </div>
+      <!--  -->
+    </div>
+    <div class="col-md-6 col-12 pb-2 order-first order-lg-last">
+      <div class="d-flex flex-column h-100" [ngSwitch]="currentTab">
+        <div class="my-auto" *ngSwitchDefault>
+          <h3>I offer a variety of quality services</h3>
+          <p>&laquo; Please select option to learn more</p>
+        </div>
+
+        <div *ngSwitchCase="'marketing'">
+          <p>
+            <strong>Marketing and sales langing pages</strong> Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Debitis, quaerat assumenda!
+            Dolorem, accusantium. Eaque ipsa veniam ducimus nisi animi
+            perferendis ex sint dolor impedit, dolores ullam eius, mollitia
+            accusantium corrupti.
+          </p>
+        </div>
+        <div *ngSwitchCase="'mobile'">
+          <p>
+            <strong>Mobile Applications</strong> Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Debitis, quaerat assumenda! Dolorem,
+            accusantium. Eaque ipsa veniam ducimus nisi animi perferendis ex
+            sint dolor impedit, dolores ullam eius, mollitia accusantium
+            corrupti.
+          </p>
+        </div>
+        <div *ngSwitchCase="'websites'">
+          <p>
+            <strong>Websites with CMS</strong> Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Debitis, quaerat assumenda! Dolorem,
+            accusantium. Eaque ipsa veniam ducimus nisi animi perferendis ex
+            sint dolor impedit, dolores ullam eius, mollitia accusantium
+            corrupti.
+          </p>
+        </div>
+        <div *ngSwitchCase="'web'">
+          <p>
+            <strong>Web Applications</strong> Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Debitis, quaerat assumenda! Dolorem,
+            accusantium. Eaque ipsa veniam ducimus nisi animi perferendis ex
+            sint dolor impedit, dolores ullam eius, mollitia accusantium
+            corrupti.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<app-herobar>
-  <h4 class="pt-4">Such a nice side...</h4>
-</app-herobar>
+<div class="container marketing">
+  <!-- Three columns of text below the carousel -->
+  <div class="row">
+    <ng-template ngFor [ngForOf]="recentProjects">
+      <div class="col-lg-4">
+        <img
+          class="rounded-circle"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+          alt="Generic placeholder image"
+          width="140"
+          height="140"
+        />
+        <h2>Heading</h2>
+        <p>
+          Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.
+          Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo
+          risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo
+          cursus magna.
+        </p>
+        <p>
+          <a class="btn btn-secondary" href="#" role="button">View details »</a>
+        </p>
+      </div>
+      <!-- /.col-lg-4 -->
+    </ng-template>
+    <!-- /.col-lg-4 -->
+  </div>
+  <!-- /.row -->
+</div>
